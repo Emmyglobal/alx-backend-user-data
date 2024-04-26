@@ -1,23 +1,17 @@
 #!/usr/bin/env python3
-""" User Model """
+"""module docs for user.py"""
+from typing import Any
 from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy import Column, Integer, String
-
 
 Base = declarative_base()
 
 
 class User(Base):
-    """ User Class Model """
-    __tablename__ = 'users'
-
-    id = Column(Integer, primary_key=True)
-    email = Column(String(250), nullable=False)
-    hashed_password = Column(String(250), nullable=False)
-    session_id = Column(String(250), nullable=True)
-    reset_token = Column(String(250), nullable=True)
-
-    def __init__(self, email, hashed_password):
-        """ Initialization """
-        self.email = email
-        self.hashed_password = hashed_password
+    """User model declaration"""
+    __tablename__ = "users"
+    id = Column(Integer, primary_key=True)  # the integer primary key
+    email = Column(String(250))  # a non-nullable string
+    hashed_password = Column(String(250))  # a non-nullable string
+    session_id = Column(String(250))  # a nullable string
+    reset_token = Column(String(250))  # a nullable string
